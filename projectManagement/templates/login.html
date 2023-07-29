@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>登录界面</title>
+    <script src="{% static 'js/jquery-3.6.3.js' %}"></script>
+    <script href="{% static 'plugins/bootstrap-3.4.1/js/bootstrap.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'plugins/bootstrap-3.4.1/css/bootstrap.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <script src="{% static 'js/login.js' %}"></script>
+</head>
+<body>
+<div class="background"></div>
+<div class="login-container">
+    <form class="login-form" method="post">
+        <h2>登录</h2>
+        <div class="form-group">
+            <label for="username">账&nbsp&nbsp号:</label>
+{#            {{ form.number }}#}
+            {{ form.user_num }}
+            <span style="color: red">{{ form.number.errors.0 }}</span>
+        </div>
+        <div class="form-group">
+            <label for="password">密&nbsp&nbsp码:</label>
+{#            {{ form.password }}#}
+            {{ form.user_passwd }}
+            <span style="color: red">{{ form.password.errors.0 }}</span>
+        </div>
+        <div class="form-group">
+            <label for="captcha">验证码:</label>
+            <input type="text" id="captcha" name="captcha" placeholder="请输入验证码" required>
+            <img src="/image/code/" id="captcha-img" alt="验证码">
+            <span style="color: red">{{ yzm }}</span>
+        </div>
+        <button type="submit" id="login-btn">登录</button>
+        <button type="button" id="login-btn"><a href="/register/">前往注册</a></button>
+    </form>
+</div>
+
+<script>
+</script>
+</body>
+</html>

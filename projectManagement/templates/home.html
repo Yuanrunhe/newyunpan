@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>全项目</title>
+    <script src="{% static 'js/jquery-3.6.3.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'plugins/bootstrap-3.4.1/css/bootstrap.css' %}">
+    <script src="{% static 'plugins/bootstrap-3.4.1/js/bootstrap.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    {% block link %} {% endblock %}
+    {% block script %} {% endblock %}
+</head>
+<body>
+{#  头部页面 #}
+<div class="head">
+    <div class="title">
+        袁润和
+    </div>
+
+    <div class="head-bottom">
+        <div class="navbar-sr">
+            <nav>
+                <ul>
+                    <li><a href="/projectManage/">项目管理</a></li>
+                    <li><a href="/noteList/">笔记管理</a></li>
+                    <li><a href="/yunpan/">私人云盘</a></li>
+                    <li><a href="/iswho/">联系我们</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <div class="gr-info">
+        <span class="glyphicon glyphicon-user gr-fon" aria-hidden="true"></span>
+        <a href="/log_off/"><span class="glyphicon glyphicon-off gr-fon" aria-hidden="true"></span></a>
+    </div>
+    <div style="clear: both;"></div>
+</div>
+
+<div class="middle">
+    <div class="left-menu">
+        {% block menu %} {% endblock %}
+    </div>
+
+    <div class="content">
+        {% block content %} {% endblock %}
+    </div>
+</div>
+
+</body>
+    <script src="{% static 'js/menu-xg.js' %}"></script>
+{% block js %} {% endblock %}
+</html>

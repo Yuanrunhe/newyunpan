@@ -1,0 +1,30 @@
+{% extends 'projectManage.html' %}
+{% load static %}
+
+{% block link2 %}
+    <link rel="stylesheet" href="{% static 'css/projectList.css' %}">
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/loadingoverlay.min.js' %}"></script>
+    <script src="{% static 'plugins/bootstrap-3.4.1/js/bootstrap.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <a href="/noteList/" style="color: black;"><span><span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span>返回上一层</span></a>
+            <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            <h2 class="panel-title" style="display: inline">{{ response.file_name }}</h2>
+        </div>
+        <div class="panel-body">
+            {% if response.filetype == "md" %}
+                {{ response.content | safe }}
+            {% else %}
+                <pre>{{ response.content | safe }}</pre>
+            {% endif %}
+
+        </div>
+    </div>
+{% endblock %}
+
+{% block js2 %}
+{% endblock %}

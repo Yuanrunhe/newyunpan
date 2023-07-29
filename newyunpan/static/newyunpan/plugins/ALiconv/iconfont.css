@@ -1,0 +1,133 @@
+@font-face {
+  font-family: "iconfont"; /* Project id  */
+  src: url('iconfont.ttf?t=1690125971439') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-wenjianjia:before {
+  content: "\f00c5";
+}
+
+.icon-pdf:before {
+  content: "\e621";
+}
+
+.icon-audio:before {
+  content: "\e8a4";
+}
+
+.icon-excel:before {
+  content: "\e8a6";
+}
+
+.icon-ppt:before {
+  content: "\e8b0";
+}
+
+.icon-word:before {
+  content: "\e8b6";
+}
+
+.icon-xml:before {
+  content: "\e8b8";
+}
+
+.icon-TXT:before {
+  content: "\e654";
+}
+
+.icon-wenjianshangchuan:before {
+  content: "\e616";
+}
+
+.icon-zip:before {
+  content: "\e65a";
+}
+
+.icon-file_img:before {
+  content: "\e69e";
+}
+
+.icon-TAR:before {
+  content: "\e622";
+}
+
+.icon-Ztubiao:before {
+  content: "\e63c";
+}
+
+.icon-RARtubiao:before {
+  content: "\e641";
+}
+
+.icon-video:before {
+  content: "\e758";
+}
+
+.icon-24gl-folderPlus:before {
+  content: "\eabe";
+}
+
+.icon-csv:before {
+  content: "\e665";
+}
+
+.icon-html:before {
+  content: "\e667";
+}
+
+.icon-chuangjian:before {
+  content: "\e614";
+}
+
+.icon-javascript:before {
+  content: "\e66b";
+}
+
+.icon-powershell:before {
+  content: "\e680";
+}
+
+.icon-Python:before {
+  content: "\ec39";
+}
+
+.icon-css:before {
+  content: "\e618";
+}
+
+.icon-file-zip-fill:before {
+  content: "\eba7";
+}
+
+.icon-file-markdown-fill:before {
+  content: "\ebb1";
+}
+
+.icon-font:before {
+  content: "\e6a3";
+}
+
+.icon-wenjianleixing-suolvetu-weizhiwenjian:before {
+  content: "\e6a9";
+}
+
+.icon-json:before {
+  content: "\e801";
+}
+
+.icon-chuangjianwenjianjia:before {
+  content: "\e9c9";
+}
+
+.icon-a-ziyuan1:before {
+  content: "\e7eb";
+}
+

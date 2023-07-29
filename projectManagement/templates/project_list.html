@@ -1,0 +1,138 @@
+{% extends 'projectManage.html' %}
+{% load static %}
+
+{% block link2 %}
+    <link rel="stylesheet" href="{% static 'css/projectList.css' %}">
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'plugins/bootstrap-3.4.1/js/bootstrap.js' %}"></script>
+
+    <script src="{% static 'js/loadingoverlay.min.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+    <div class="gn">
+        <a class="gn-btn btn btn-success active" data-toggle="modal" data-target="#myModal"><span
+                class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+            添加</a>
+    </div>
+    <div class="pro_info">
+        <table class="table table-bordered table-hover">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>项目名称</th>
+                <th>上传人</th>
+                <th>上传时间</th>
+                <th>最近一次修改时间</th>
+                <th>备注</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for i in alldata %}
+                <tr>
+                    <td>{{ i.id }}</td>
+                    <td>{{ i.project_name }}</td>
+                    <td>{{ i.person }}</td>
+                    <td>{{ i.upload_date }}</td>
+                    <td>{{ i.change_date }}</td>
+                    <td>{{ i.remarks }}</td>
+                    <td>
+                        <a style="text-decoration:none; color: white" class="btn btn-success btn-xs"
+                           href="/load_project/{{ i.id }}"><span
+                                class="glyphicon glyphicon-download-alt" aria-hidden="true"></span> 下载</a>
+                        <button style="text-decoration:none; color: white" class="btn btn-primary btn-xs edit-btn"
+                                data-id={{ i.id }}>
+                            <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> 编辑
+                        </button>
+                        <a style="text-decoration:none; color: white" class="btn btn-success btn-xs del-btn"
+                           data-id={{ i.id }}><span
+                                class="glyphicon glyphicon-download-alt" aria-hidden="true"></span> 删除</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <nav aria-label="..." style="text-align: center">
+        <ul class="pagination">
+            {{ html }}
+        </ul>
+    </nav>
+
+    <!-- add_Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">请输入</h4>
+                </div>
+                <form method="post" novalidate id="add_form" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="modal-body">
+                        {% for i in form %}
+                            <span>{{ i.label }}</span>{{ i }}
+                            <span class="error-ts" style="color: red;" id={{ i.name }}></span><br>
+                        {% endfor %}
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                        <button type="button" class="btn btn-primary" onclick="bindBtnAddEvent()">提交</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- edit_Modal -->
+    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">修改数据</h4>
+                </div>
+                <div class="modal-body">
+                    <form method="post" novalidate id="edit_form" enctype="multipart/form-data" action="/edit_project/">
+                        <div class="modal-body1">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">保存</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- del_Modal -->
+    <div class="modal fade" id="delModal" tabindex="-1" aria-labelledby="delModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">删除数据确认</h4>
+                </div>
+                <div class="delModal-body">
+                    <div class="warn-body">
+                        <div class="alert alert-danger" role="alert">请确认是否删除本条数据</div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" id="del-btn">确认删除</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- del_Modal -->
+    <div class="modal fade" id="tsModal" tabindex="-1" aria-labelledby="delModalLabel" aria-hidden="true">
+
+    </div>
+{% endblock %}
+
+{% block js2 %}
+    <script src="{% static 'js/project-list.js' %}"></script>
+{% endblock %}

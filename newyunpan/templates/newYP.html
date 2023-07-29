@@ -1,0 +1,106 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>共享云盘</title>
+    <script src="{% static 'newyunpan/js/jquery.min.js' %}"></script>
+    <script src="{% static 'newyunpan/plugins/bootstrap-3.4.1/js/bootstrap.min.js' %}"></script>
+
+    <link rel="stylesheet" href="{% static 'newyunpan/css/newYp.css' %}">
+    <link rel="stylesheet" href="{% static 'newyunpan/plugins/ALiconv/iconfont.css' %}">
+    <link rel="stylesheet" href="{% static 'newyunpan/plugins/bootstrap-3.4.1/css/bootstrap.min.css' %}">
+    <script src="{% static 'newyunpan/plugins/ALiconv/iconfont.js' %}"></script>
+    {#    <script src="{% static 'newyunpan/js/newyunpan.js' %}"></script>#}
+
+</head>
+<body>
+<div class="page-top">
+    <div class="log-div">
+        <span class="glyphicon glyphicon-cloud logo-tb" aria-hidden="true"></span>
+        <span class="logo-title">云盘系统</span>
+    </div>
+    <div class="user-info-div">
+        <span class="glyphicon glyphicon-off info-span" aria-hidden="true"></span>
+        <span class="glyphicon glyphicon-user info-span" aria-hidden="true"></span>
+        <div style="clear: both;"></div>
+    </div>
+</div>
+
+<div class="page-container">
+    <div class="page-left-box">
+        <div class="sidebar">
+            <ul class="menu">
+                <li>
+                    <a href="/newyp/">网盘列表</a>
+                    <ul class="submenu">
+                        <li><a href="#">二级菜单项 1</a></li>
+                        <li><a href="#">二级菜单项 2</a></li>
+                        <li><a href="#">二级菜单项 3</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">网盘数据统计</a>
+                    <ul class="submenu">
+                        <li><a href="#">二级菜单项 1</a></li>
+                        <li><a href="#">二级菜单项 2</a></li>
+                        <li><a href="#">二级菜单项 3</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">文件共享管理</a>
+                </li>
+                <li>
+                    <a href="#">个人信息</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="page-right-box">
+        <div class="functional-model">
+
+            <div class="gn-icon">
+                <button type="button" class="btn btn-primary rtup" id="rtupID">返回上一级</button>
+                <button class="btn-up-file btn-cj-wjj">
+                    <svg class="icon al-icon-gn add-file-svg" aria-hidden="true">
+                        <use xlink:href="#icon-chuangjian"></use>
+                    </svg>
+                </button>
+                <button class="btn-up-file btn-sc-file">
+                    <svg class="icon al-icon-gn up-file-svg" aria-hidden="true">
+                        <use xlink:href="#icon-wenjianshangchuan"></use>
+                    </svg>
+                </button>
+            </div>
+{#            <div class="luyou">#}
+{#                <span>首页</span>#}
+{#            </div>#}
+        </div>
+        <div class="file-list">
+            <ul class="file-all-ul" id="file-first"></ul>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="sc-model" tabindex="-1" role="dialog" aria-labelledby="sc-modelLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="sc-modelLabel"></h4>
+                </div>
+                <div class="modal-body sc-model-body">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-primary" id="up-file-qrsc">确认上传</button>
+                    <button type="button" class="btn btn-primary" id="cr-wjj-qrsc">确认创建</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+<script src="{% static 'newyunpan/js/newyunpan.js' %}"></script>
+</html>

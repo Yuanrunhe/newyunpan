@@ -1,0 +1,270 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+
+.page-top {
+    position: absolute;
+    width: 100%;
+    height: 60px;
+    /*background-color: #1b6d85;*/
+    background-color: #11708f;
+    border-bottom: 1px solid #8c8c8c;
+}
+
+
+.page-container {
+    position: absolute;
+    width: 100%;
+    overflow: hidden;
+    top: 60px;
+    bottom: 0;
+}
+
+.page-left-box {
+    float: left;
+    width: 15%;
+    background-color: #415c67;
+    height: 100%;
+    border-right: 1px solid #8c8c8c;
+    box-sizing: border-box;
+}
+
+.page-right-box {
+    float: right;
+    width: 85%;
+    height: 100%;
+}
+
+.functional-model {
+    width: 100%;
+    height: 40px;
+    border-bottom: 1px solid #8c8c8c;
+    margin-top: 0;
+}
+
+.gn-icon {
+    float: left;
+    height: 100%;
+    width: 300px;
+    margin-left: 30px;
+    font-size: 50px;
+    line-height: 40px;
+    /*background-color: #2b542c;*/
+}
+
+.al-icon-gn {
+    padding-right: 20px;
+    width: 55px;
+    height: 35px;
+}
+
+.btn-up-file {
+    border: none;
+    background: transparent;
+}
+
+.file-list {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    margin-top: 10px;
+}
+
+.file-list ul {
+    list-style: none;
+    overflow: hidden;
+    margin-left: -10px;
+}
+
+.file-list ul li {
+    position: relative;
+    float: left;
+    margin: 0 18px 20px 0;
+    width: 160px;
+    height: 180px;
+    background-color: #fff;
+    color: #333;
+}
+
+.al-icon-wjj {
+    padding-right: 25px;
+    width: 130px;
+    height: 120px;
+    fill: #339bb9;
+    /*margin-top: -2px;*/
+    margin-left: 20px;
+}
+
+.al-icon-wjj:hover {
+    padding-right: 25px;
+    width: 150px;
+    height: 140px;
+    fill: #339bb9;
+    margin-top: -15px;
+    margin-left: 20px;
+}
+
+.al-icon-file {
+    padding-right: 25px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: 130px;
+    height: 110px;
+    margin-top: 10px;
+    margin-left: 20px;
+    fill: #33b986;
+}
+
+.al-icon-file:hover {
+    width: 160px;
+    height: 130px;
+    margin-top: -5px;
+    margin-left: 10px;
+}
+
+.file-title {
+    width: 100%;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    text-align: center;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-family: Open Sans, cursive;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+    font-size: 17px;
+}
+
+.rtup {
+    margin-top: -13px;
+}
+
+.user-info-div {
+    width: 300px;
+    height: 100%;
+    float: right;
+    /*background-color: #1b6d85;*/
+}
+
+.info-span {
+    font-size: 22px;
+    display: block;
+    float: right;
+    margin-right: 35px;
+    margin-top: 17px;
+}
+
+.log-div {
+    float: left;
+    width: 450px;
+    height: 100%;
+    margin-left: 230px;
+    font-size: 30px;
+    line-height: 60px;
+    letter-spacing: 5px;
+    font-weight: 600;
+    font-family: KaiTi, sans-serif;
+    /*color: #f6e8e8;*/
+    color: #a6e1ec;
+}
+
+.logo-tb {
+    display: block;
+    float: left;
+    margin-top: 15px;
+    margin-right: 20px;
+}
+
+.logo-title {
+    display: block;
+    float: left;
+}
+
+.sidebar {
+    width: 100%;
+    /*background-color: #f2f2f2;*/
+}
+
+.menu {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu li {
+    padding: 10px;
+    text-align: center;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    border-bottom: 1px solid #000000;
+}
+
+
+.menu li a {
+    color: #bdbbbb;
+    text-decoration: none;
+    font-size: 19px;
+
+}
+
+.submenu {
+    display: none;
+    list-style-type: none;
+    margin: 0;
+}
+
+.submenu li {
+    border-bottom: 0;
+    font-size: 10px;
+    margin-top: 10px;
+}
+
+/*.menu li:hover .submenu {*/
+/*    display: block;*/
+/*}*/
+
+.download-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 25px;
+    height: 25px;
+    font-size: 20px;
+    color: #2869be;
+    display: none;
+}
+
+.file-all-ul li:hover .download-icon {
+    display: block;
+}
+
+
+.trashload-icon {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 25px;
+    height: 25px;
+    font-size: 15px;
+    color: #505050;
+    display: none;
+}
+
+.file-all-ul li:hover .trashload-icon {
+    display: block;
+}
+
+.luyou {
+    float: left;
+    font-size: 20px;
+    height: 100%;
+    margin-left: 0;
+    /*background-color: #2b542c;*/
+    text-align: center;
+    line-height: 40px;
+    color: #0fbaff;
+}

@@ -1,0 +1,113 @@
+{% extends 'projectManage.html' %}
+{% load static %}
+
+{% block link2 %}
+    <link rel="stylesheet" href="{% static 'css/projectList.css' %}">
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/loadingoverlay.min.js' %}"></script>
+    <script src="{% static 'plugins/bootstrap-3.4.1/js/bootstrap.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+    <div class="gn">
+        <a class="gn-btn btn btn-success active addbtn" data-toggle="modal" data-target="#addModel"><span
+                class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+            添加</a>
+    </div>
+    <div class="pro_info">
+        <table class="table table-bordered table-hover">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>笔记名称</th>
+                <th>上传人</th>
+                <th>上传时间</th>
+                <th>备注</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for i in data %}
+                <tr>
+                    <td>{{ i.id }}</td>
+                    <td><a href="/note_view/?id={{ i.id }}" style="color: black">{{ i.note_name }}</a></td>
+                    <td>{{ i.person }}</td>
+                    <td>{{ i.upload_date }}</td>
+                    <td>{{ i.remarks }}</td>
+                    <td>
+                        <a style="text-decoration:none; color: white" class="btn btn-success btn-xs"
+                           href="/load_note/{{ i.id }}"><span
+                                class="glyphicon glyphicon-download-alt" aria-hidden="true"></span> 下载</a>
+                        <a style="text-decoration:none; color: white" class="btn btn-success btn-xs delbtn"
+                           data-id={{ i.id }}><span
+                                class="glyphicon glyphicon-download-alt" aria-hidden="true"></span> 删除</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <nav aria-label="..." style="text-align: center">
+        <ul class="pagination">
+            {{ html }}
+        </ul>
+    </nav>
+
+    {#  添加模态框  #}
+    <div class="modal fade" id="addModel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">添加笔记</h4>
+                </div>
+                <form method="post" novalidate id="addModelForm" enctype="multipart/form-data">
+                    <div class="modal-body">
+
+                        {% csrf_token %}
+                        {% for i in form %}
+                            <label>{{ i.label }}</label>
+                            {{ i }}
+                            {{ i.errors.0 }}
+                        {% endfor %}
+                        <span class="adderr"></span>
+                        <span id="add_err" style="color: red"></span>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                            <button type="button" class="btn btn-primary" onclick="addNote()">提交</button>
+                        </div>
+
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+    {#  删除模态框  #}
+    <div class="modal fade" id="note_del_Modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">删除</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="alert alert-danger" role="alert">请确认是否删除!!!</div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-primary note_del">确认</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block js2 %}
+    <script src="{% static 'js/project-list.js' %}"></script>
+{% endblock %}

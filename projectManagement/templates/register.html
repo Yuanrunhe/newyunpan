@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>注册界面</title>
+    <script href="{% static 'js/jquery-3.6.3.js' %}"></script>
+    <script href="{% static 'plugins/bootstrap-3.4.1/js/bootstrap.js' %}"></script>
+    <script href="{% static 'plugins/bootstrap-3.4.1/css/bootstrap.css' %}"></script>
+
+    <link rel="stylesheet" href="{% static 'css/register.css' %}">
+    <script href="{% static 'js/login.js' %}"></script>
+</head>
+<body>
+<div class="background"></div>
+<div class="login-container">
+    <form class="login-form" method="post">
+        <h2>注册</h2>
+        <div class="form-group">
+            <label for="username">手&nbsp机&nbsp号:</label>
+{#            {{ form.number }}#}
+            {{ form.user_num }}
+            <span style="color: red">{{ form.number.errors.0 }}</span>
+        </div>
+        <div class="form-group">
+            <label for="username">姓&nbsp&nbsp名:</label>
+{#            {{ form.name }}#}
+            {{ form.user_name }}
+            <span style="color: red">{{ form.name.errors.0 }}</span>
+        </div>
+        <div class="form-group">
+            <label for="password">密&nbsp&nbsp码:</label>
+{#            {{ form.password }}#}
+            {{ form.user_passwd }}
+            <span style="color: red">{{ form.password.errors.0 }}</span>
+        </div>
+        <div class="form-group">
+            <label for="captcha">确认密码:</label>
+            {{ form.confirm_password }}
+            <span style="color: red">{{ form.confirm_password.errors.0 }}</span>
+        </div>
+        <button type="submit" id="login-btn">注册</button>
+        <button type="button" id="login-btn"><a href="/login/">返回登录</a></button>
+    </form>
+</div>
+
+</body>
+</html>

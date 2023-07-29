@@ -1,0 +1,88 @@
+.menu-list {
+    width: 200px;
+}
+
+.menu-title {
+    display: block;
+    width: 200px;
+    height: 80px;
+    font-size: 40px;
+    line-height: 80px;
+    color: #fcfcfc;
+    text-align: center;
+    border-bottom: 1px solid #424040;
+    letter-spacing: 10px;
+    padding: 5px 0;
+}
+
+/*.menu-item {*/
+/*    display: block;*/
+/*    width: 180px;*/
+/*    height: 50px;*/
+/*    font-size: 20px;*/
+/*    line-height: 50px;*/
+/*    color: #d7cece;*/
+/*    text-align: center;*/
+/*    letter-spacing: 0.1em;*/
+/*    border-bottom: 1px solid #424040;*/
+/*}*/
+
+/*.menu-list a {*/
+/*    text-decoration: none;*/
+/*}*/
+
+/*.menu-item:hover {*/
+/*    color: #b9c1c5;*/
+/*    background-color: #6d7d8f;*/
+/*}*/
+
+#menu {
+    width: 100%;
+    margin-top: 10px;
+    padding-left: 0; /* 移除内边距 */
+    /*margin: 0; !* 移除外边距 *!*/
+}
+
+#menu li {
+    list-style: none;
+    /*display: inline-block;*/
+    width: 100%;
+    margin-left: 0;
+    box-sizing: border-box; /* 设置盒模型为 border-box，确保 padding 不会增加元素宽度 */
+    /*background-color: #339bb9;*/
+    /*border-bottom: 1px solid #595757;*/
+}
+
+
+#menu li a {
+    text-decoration: none;
+    color: black;
+}
+
+#menu li a :hover {
+    text-decoration: none;
+}
+
+.first_label {
+    margin-top: 5px;
+    height: 40px;
+    font-size: 20px;
+    line-height: 40px;
+    color: #d7cece;
+    text-align: center;
+    letter-spacing: 0.1em;
+
+    position: relative;
+    z-index: 2; /* 设置一级菜单的 z-index 值为 2 */
+}
+
+
+/*隐藏二级菜单*/
+.Secondary_label {
+  /*display: none;*/
+    position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1; /* 设置二级菜单的 z-index 值为 1 */
+}
+

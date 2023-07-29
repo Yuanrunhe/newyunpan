@@ -1,0 +1,27 @@
+{% extends 'home.html' %}
+{% load static %}
+
+{% block link %}
+    <link rel="stylesheet" href="{% static 'css/menu-list.css' %}">
+    {% block link2 %}{% endblock %}
+{% endblock %}
+
+{% block script %}
+{% endblock %}
+
+{% block menu %}
+    <div class="menu-list">
+    <span class="menu-title">菜    单</span>
+    <ul id="menu"></ul>
+    </div>
+{% endblock %}
+
+{% block content %}
+
+{% endblock %}
+
+{% block js %}
+{#    <script src="{% static 'js/menu-xg.js' %}"></script>#}
+    {% block js2 %}
+    {% endblock %}
+{% endblock %}
