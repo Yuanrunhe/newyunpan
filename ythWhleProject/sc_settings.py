@@ -53,13 +53,16 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    # 'projectManagement.auth.AutoLogin.AutoLogin',
+    #'projectManagement.auth.AutoLogin.AutoLogin',
     'auth.AutoLogin.AutoLogin',  # 用户认证中间件
 ]
 
 ROOT_URLCONF = 'ythWhleProject.urls'
 
-STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")  # 执行python manage.py collectstatic时收集静态文件时的路径
+#STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")  # 执行python manage.py collectstatic时收集静态文件时的路径
+#STATIC_ROOT = '/var/www/ythWhleProject/staticfiles/'
+STATIC_ROOT='/root/web/ythWhleProject/staticfiles/'
+
 
 TEMPLATES = [
     {
@@ -80,68 +83,38 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'ythWhleProject.wsgi.application'
 
+iphost='172.18.43.250'
+
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-# DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.mysql',
-#        'NAME': 'wp',
-#        'USER': 'python',
-#        'PASSWORD': '1312014657',
-#        'HOST': '192.168.10.88',
-#        'PORT': '3306',
-#    }
-# }
-
-# 动态读取mysql配置
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.environ.get('MYSQL_DB'),
-        'USER': os.environ.get('MYSQL_USER'),
-        'PASSWORD': os.environ.get('MYSQL_PASSWORD'),
-        'HOST': os.environ.get('MYSQL_HOST'),
-        'PORT': os.environ.get('MYSQL_PORT'),
+        'NAME': 'wp',
+        'USER': 'python',
+        'PASSWORD': '1312014657',
+        'HOST': '172.18.43.250',
+        'PORT': '3306',
     }
 }
 
+
 # redis配置
-# CACHES = {
-#    'default': {
-#        'BACKEND': 'django_redis.cache.RedisCache',
-#        'LOCATION': 'redis://192.168.10.88:6379/0',
-#        'OPTIONS': {
-#            'CLIENT_CLASS': 'django_redis.client.DefaultClient',
-#        }
-#    },
-#    'login_code': {
-#        'BACKEND': 'django_redis.cache.RedisCache',
-#        'LOCATION': 'redis://192.168.10.88:6379/0',
-#        'OPTIONS': {
-#            'CLIENT_CLASS': 'django_redis.client.DefaultClient',
-#            'CONNECTION_POOL_KWARGS': {'decode_responses': True},  # 添加这条数据后获取的数据就不是bytes的
-#        },
-#        'KEY_PREFIX': 'login_',
-#    }
-# }
-
-
-# 部署后动态读取redis地址端口
 CACHES = {
     'default': {
         'BACKEND': 'django_redis.cache.RedisCache',
-        'LOCATION': f"redis://{os.environ.get('REDIS_HOST')}:{os.environ.get('REDIS_PORT')}/0",
+        'LOCATION': 'redis://172.18.43.250:6379/0',
         'OPTIONS': {
             'CLIENT_CLASS': 'django_redis.client.DefaultClient',
         }
     },
     'login_code': {
         'BACKEND': 'django_redis.cache.RedisCache',
-        'LOCATION': f"redis://{os.environ.get('REDIS_HOST')}:{os.environ.get('REDIS_PORT')}/0",
+        'LOCATION': 'redis://172.18.43.250:6379/0',
         'OPTIONS': {
             'CLIENT_CLASS': 'django_redis.client.DefaultClient',
-            'CONNECTION_POOL_KWARGS': {'decode_responses': True},
+            'CONNECTION_POOL_KWARGS': {'decode_responses': True},  # 添加这条数据后获取的数据就不是bytes的
         },
         'KEY_PREFIX': 'login_',
     }
