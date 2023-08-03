@@ -20,4 +20,5 @@ urlpatterns = [
     path('getPageFile/', newYP.getPageFile),
     path('rtupData/', newYP.getrtupData),
     path('fileDown/', newYP.fileDown),
+    path('delete/', newYP.deleteFile),
 ]

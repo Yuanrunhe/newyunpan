@@ -181,9 +181,11 @@ function getPageData(pageWJJID) {
                     downIcon.append(downA);
 
                     // 删除按钮
-                    const trashIcon = $('<div>').addClass("trashload-icon").attr({'trashID':index});
-                    const trashIcon2 = $('<span>').addClass("glyphicon glyphicon-trash")
-                    trashIcon.append(trashIcon2);
+                    const trashIcon = $('<div>').addClass("trashload-icon deleteDiv").attr({'trashID':index});
+                    const trashA = $('<a>');
+                    const trashIcon2 = $('<span>').addClass("glyphicon glyphicon-trash");
+                    trashA.append(trashIcon2);
+                    trashIcon.append(trashA);
 
 
                     const iconvHtml = '<svg class="icon al-icon-file" aria-hidden="true"><use xlink:href='+item.fileType+'></use></svg>';
@@ -265,6 +267,33 @@ function downfile() {
     });
 }
 
+
+function delFile() {
+    $(document).on('click', '.deleteDiv', function () {
+        const fileID = $(this).attr('trashid');
+        const formData = new FormData();
+        formData.append("fileID",fileID);
+        $.ajax({
+            url: '/newyp/delete/',
+            type: 'POST',
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function (response) {
+                console.log("删除成功")
+                // 回调重新渲染页面
+                const ulID = $('.file-all-ul').attr('id');
+                getPageData(ulID);
+            },
+            error: function (xhr, status, error) {
+                console.log(xhr.responseText);
+                alert("删除失败");
+            }
+        });
+
+    })
+}
+
 $(document).ready(function () {
     getPageData('file-first');
     getModel();
@@ -273,20 +302,9 @@ $(document).ready(function () {
     cr_wjj_file();
     selectFolder();
     rtupsx();
+    delFile();
     // downfile();
 });
-// $(document).ready(function() {
-//   $('.menu li').hover(
-//     function() {
-//       $(this).find('.submenu').slideDown();
-//     },
-//     function() {
-//       $(this).find('.submenu').slideUp();
-//     }
-//   );
-// });
-
-
 
 
 $(document).ready(function() {

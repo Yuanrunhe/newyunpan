@@ -155,7 +155,7 @@ def fileDown(request):
             fileID = request.GET.get('fileID')
             user_id = request.session.get('info')['user_id']
             pswd = request.session.get('info')['user_passwd']
-            userObject = NewUserInfo.objects.get(user_id=user_id,user_passwd=pswd)
+            userObject = NewUserInfo.objects.get(user_id=user_id, user_passwd=pswd)
             if not userObject:
                 return HttpResponse("无效用户,下载失败")
             fileObject = FileBook.objects.filter(file_id=int(fileID), file_user_id_id=user_id).first()
@@ -168,4 +168,17 @@ def fileDown(request):
         except Exception as e:
             print(e)
             return HttpResponse("下载失败")
+    return Http404
+
+
+def deleteFile(request):
+    if request.method == "POST":
+        fileID = request.POST.get('fileID')
+        user_id = request.session.get('info')['user_id']
+        user_group_id = request.session.get('info')['user_group_id']
+        FileBook_Object = FileBook.objects.filter(file_id=fileID, file_user_id_id=user_id, file_group_id_id=user_group_id)
+        if FileBook_Object:
+            FileBook_Object.delete()
+            return JsonResponse({'message': '删除成功'}, status=200)
+        return JsonResponse({'message': '删除失败'}, status=502)
     return Http404
